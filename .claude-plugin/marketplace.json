@@ -1,0 +1,30 @@
+{
+  "name": "turbin3-solana-companion",
+  "id": "turbin3-solana-companion",
+  "owner": {
+    "name": "ToXMon"
+  },
+  "metadata": {
+    "description": "Security-first Solana dapp development companion for the Turbin3 Builders Cohort",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "turbin3-solana-companion",
+      "source": "./",
+      "description": "Security-first, requirements-first Solana full-stack companion: 15 skills, cohort knowledge base, agents, and workflows.",
+      "version": "1.0.0",
+      "author": {
+        "name": "ToXMon"
+      },
+      "keywords": [
+        "solana",
+        "anchor",
+        "security",
+        "turbin3",
+        "web3"
+      ],
+      "category": "workflow"
+    }
+  ]
+}

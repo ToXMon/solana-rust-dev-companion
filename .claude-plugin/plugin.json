@@ -1,0 +1,33 @@
+{
+  "name": "turbin3-solana-companion",
+  "description": "Security-first, simplicity-first Solana full-stack companion for Turbin3 builders: principles, cohort knowledge, skills, agents, and workflows.",
+  "version": "1.0.0",
+  "author": {
+    "name": "ToXMon"
+  },
+  "license": "MIT",
+  "keywords": [
+    "solana",
+    "anchor",
+    "security",
+    "turbin3",
+    "web3"
+  ],
+  "skills": [
+    "./skills/safe-solana-builder",
+    "./skills/solana-architect",
+    "./skills/solana-build",
+    "./skills/solana-defi",
+    "./skills/solana-frontend",
+    "./skills/solana-guide",
+    "./skills/solana-loi",
+    "./skills/solana-nfts",
+    "./skills/solana-privacy",
+    "./skills/solana-research",
+    "./skills/solana-rwa",
+    "./skills/solana-security",
+    "./skills/solana-test",
+    "./skills/solana-tokens",
+    "./skills/turbin3"
+  ]
+}
