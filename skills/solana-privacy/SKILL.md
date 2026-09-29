@@ -2,7 +2,6 @@
 name: solana-privacy
 description: Add privacy features to Solana apps using confidential transfers, Light Protocol, Arcium, and related tools
 argument-hint: "<privacy level: pseudonymity / anonymity / confidentiality / full-privacy>"
-model: sonnet
 allowed-tools:
   - read
   - edit

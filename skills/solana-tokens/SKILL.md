@@ -2,7 +2,6 @@
 name: solana-tokens
 description: Work with SPL, Token-2022, and token extensions on Solana
 argument-hint: "<task: mint / transfer / token-2022 / confidential / etc>"
-model: sonnet
 allowed-tools:
   - read
   - edit

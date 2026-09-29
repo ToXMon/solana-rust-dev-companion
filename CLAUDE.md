@@ -76,6 +76,23 @@ Security is a design input, not a review step. Before writing any instruction, a
 - [ ] Devnet deploy verified (program ID + tx signatures) before any mainnet talk
 - [ ] Never commit keys, wallet JSONs, `.env`, or API keys
 
+### Recurring real-audit findings (from ~20 FYEO Solana audits — check these explicitly)
+- **Initialization is first-come-first-served / re-initializable** → gate `initialize` to a known authority or upgrade authority; make config non-deletable or re-init-safe
+- **Token account mint/owner/delegate not checked** → every token account: verify `mint`, `owner`, and that `delegate` is `None` where it must be
+- **Authority transfer without co-signer** → new admin/owner must sign; add an on-chain rotation path for every privileged key
+- **No bounds on config values** (fees, weights, limits) → clamp at set-time, not just at use-time; reject zero amounts
+- **Accounting drift** (fees not accumulated, withdraw ignores ledger, harvest never called) → one ledger, one place it mutates; invariant tests
+- **Unpinned external program IDs in CPI** → hardcode or store-and-verify; never accept from instruction accounts unchecked
+- **Signature/instruction-introspection bugs** (unchecked Ed25519 header fields, no domain separation → cross-type replay) → validate every header field, bind message to program + type + recipient
+- **Panics on fixed-size copies / unbounded `Vec` growth** → length-check before copy; cap collections against `max_len`
+- **Legacy-only token program** → accept Token-2022 via `TokenInterface` unless there's a reason not to
+- **Missing events on state changes; dead code; incomplete tests** → emit on every privileged mutation; delete dead code; tests are audit scope
+
+Full catalog with citations: `knowledge/security/fyeo-audit-findings-catalog.md`. How to use it in a review: `knowledge/security/AGENTS.md`.
+
+### Mindset: vulnerabilities are infinite, exploits are few
+No checklist or audit is complete (`knowledge/security/vulnerability-abundance.md`). Therefore: (1) prefer constructs that *eliminate a class* over checks that catch an instance; (2) weight review time by where Solana programs empirically fail (the catalog's distribution); (3) prioritize findings by exploit likelihood × exposure (TVL, permissionless?, upgradeable?), not by count; (4) design for the flaw you didn't find — multisig/timelock upgrade authority, separate pause/resume, caps and floors, events for anomaly detection; (5) raise your own discovery rate: fuzz with shadow-state invariants, negative tests per failure path, spec-matching review.
+
 Detailed rules: `knowledge/security/` and `skills/safe-solana-builder/`.
 
 ---
@@ -106,4 +123,6 @@ From the Turbin3 architecture-diagram methodology (`knowledge/process/architectu
 
 ## Routing
 
-This repo's full knowledge base, skills, and workflows are indexed in `ENTRY.md`. Read it next. Outputs (designs, code, LOI drafts) go in the user's working repo, not here. Entry skill: `/turbin3`.
+This repo's full knowledge base, skills, and workflows are indexed in `ENTRY.md`. Read it next.
+Outputs (designs, code, LOI drafts) go in the user's working repo, not here.
+Entry skill: `/turbin3`.

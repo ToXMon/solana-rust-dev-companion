@@ -1,7 +1,6 @@
 ---
 name: solana-frontend-dev
 description: Build React/TypeScript frontends for Solana programs using modern SDKs and wallet adapters
-model: sonnet
 allowed-tools:
   - read
   - edit

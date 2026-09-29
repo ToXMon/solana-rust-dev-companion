@@ -49,7 +49,7 @@ PRINCIPLES.md          ENTRY.md               knowledge/  skills/  workflows/  a
 | `knowledge/core/` | Solana fundamentals, Rust-for-Anchor, cheat sheet, mental models |
 | `knowledge/process/` | Architecture-diagram methodology, LOI template, homework tracker |
 | `knowledge/patterns/` | Code patterns, use-case recipes, stack selector |
-| `knowledge/security/` | Audit-derived security patterns + Frank Castle references |
+| `knowledge/security/` | Audit-derived patterns, FYEO findings catalog (~170 real findings by class), review playbook, methodology, readiness checklist |
 | `knowledge/ecosystem/` | What's current on Solana, synthesized web resources, curated links |
 | `knowledge/cohort/` | Turbin3 transcript insights indexed by topic + slide extracts |
 | `skills/` | 15 invocable skills (`/turbin3`, `/solana-architect`, `/safe-solana-builder`, …) |

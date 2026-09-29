@@ -2,7 +2,6 @@
 name: solana-test
 description: Write and run Solana program tests using Anchor, LiteSVM, Surfpool, or devnet
 argument-hint: "<test type: unit / integration / litesvm / surfpool / devnet>"
-model: sonnet
 allowed-tools:
   - read
   - edit
@@ -57,6 +56,16 @@ You are a Solana testing engineer. Make sure programs behave correctly on local 
 - Invalid mint / token account
 - Overflow/underflow attempts
 - Reentrancy / repeated action
+
+## Fuzzing & invariants
+
+When funds or arithmetic correctness matter, add a fuzz campaign (Trident is the reference framework — see `knowledge/security/audit-methodology.md` for the full methodology):
+
+- **Shadow state:** the fuzzer maintains an `ExpectedState` mirroring what the program *should* compute (totals, per-account trackers). After each operation, contract state and shadow state are compared; mismatches panic as invariant violations.
+- **Invariants:** derive them from `docs/design.md` requirements — conservation of funds, no double actions, monotonic counters, phase/epoch gating, authorization. Write each as an explicit check, not an assertion of faith.
+- **Parameters:** randomize inputs within realistic bounds (stake ranges, fee BPs, actor counts) and enumerate the state-machine phases each iteration can land in; include the edge cases by hand (0%, 100%, repeated operations, ordering flips).
+- **Reproducibility:** every run prints a `MASTER SEED`; a failure must be replayable with `MASTER_SEED=<seed> cargo run`. Commit the seed of any failing run.
+- **Honesty:** the report ships a "What this does NOT prove" table (untested instructions, mocked CPIs, untested value extremes) plus a per-aspect confidence level. A fuzz report without a non-coverage table is a false proof.
 
 ## Output
 

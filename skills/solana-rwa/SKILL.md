@@ -2,7 +2,6 @@
 name: solana-rwa
 description: Build tokenized real-world asset (RWA) flows on Solana, including MMFs, equities, and compliance controls
 argument-hint: "<asset type: mmf / equity / tokenized-stock / private-credit / etc>"
-model: sonnet
 allowed-tools:
   - read
   - edit

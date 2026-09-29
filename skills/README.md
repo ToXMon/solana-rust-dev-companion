@@ -24,8 +24,9 @@ All skills live in named subdirectories with a `SKILL.md` file. Invoke them with
 ## Quality
 
 - `/safe-solana-builder` — security-first scaffolding and implementation guidance for Anchor, Native Rust, or Pinocchio
-- `/solana-security` — adversarial review checklist and findings
-- `/solana-test` — testing with Anchor, LiteSVM, Surfpool, devnet
+- `/solana-security` — adversarial review driven by the FYEO findings catalog (`knowledge/security/`)
+- `/solana-audit-prep` — readiness checklist + `docs/audit-scope.md` before an external audit
+- `/solana-test` — testing with Anchor, LiteSVM, Surfpool, devnet, fuzz/invariants
 
 ## Maintenance
 
@@ -38,7 +39,7 @@ All skills live in named subdirectories with a `SKILL.md` file. Invoke them with
 ## How to add a new skill
 
 1. Create `skills/<name>/SKILL.md`.
-2. Add YAML frontmatter with `name`, `description`, `argument-hint`, optional `model`, `allowed-tools`, and `permissions`.
+2. Add YAML frontmatter with `name`, `description`, `argument-hint`, `allowed-tools`, and `permissions`. Skills are model-agnostic — do not pin a `model`.
 3. Write a focused prompt body that references the knowledge base in `knowledge/`.
 4. Register it here.
 

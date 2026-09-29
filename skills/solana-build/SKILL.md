@@ -2,7 +2,6 @@
 name: solana-build
 description: Scaffold, write, test, and deploy an Anchor program on Solana
 argument-hint: "<program requirement or 'continue'>"
-model: sonnet
 allowed-tools:
   - read
   - edit

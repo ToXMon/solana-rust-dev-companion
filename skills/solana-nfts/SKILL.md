@@ -2,7 +2,6 @@
 name: solana-nfts
 description: Build Metaplex Core NFT collections, assets, and plugins on Solana
 argument-hint: "<use case: collection / royalties / plugins / metadata / etc>"
-model: sonnet
 allowed-tools:
   - read
   - edit

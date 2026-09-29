@@ -2,7 +2,6 @@
 name: solana-frontend
 description: Build a React/Next.js frontend that connects wallets and interacts with Solana programs
 argument-hint: "<program IDL path or description>"
-model: sonnet
 allowed-tools:
   - read
   - edit

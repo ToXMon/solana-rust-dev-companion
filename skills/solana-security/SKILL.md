@@ -2,7 +2,6 @@
 name: solana-security
 description: Review Solana programs and clients for common security vulnerabilities and unsafe patterns
 argument-hint: "<file path, program directory, or 'review current diff'>"
-model: sonnet
 allowed-tools:
   - read
   - edit
@@ -76,22 +75,26 @@ You are a Solana security reviewer. Audit Anchor programs, clients, and deployme
 
 ## Required reading
 
+- `knowledge/security/AGENTS.md` — the review playbook (load order, feature→class mapping, finding format). Load it first and follow it.
+- `knowledge/security/fyeo-audit-findings-catalog.md` — Section A distribution + Section B entries for the classes matching this program
+- `knowledge/security/audit-methodology.md` — FYEO severity definitions + finding template
 - `knowledge/security/security-audit-patterns.md`
-- `skills/safe-solana-builder/references/shared-base.md`
-- The matching framework reference under `skills/safe-solana-builder/references/`
+- `skills/safe-solana-builder/references/shared-base.md` + the matching framework reference
 - `skills/safe-solana-builder/references/litesvm.md` when reviewing LiteSVM tests
 
-## Workflow
+## Process
 
-1. Read the program source and identify instruction handlers.
-2. Walk through each instruction with the checklist above and the extended vulnerability-derived guidance.
-3. Read tests and check coverage of failure paths.
-4. If a vulnerability or unsafe pattern is found, explain the exploit path and provide a concrete fix.
-5. Write findings to `security-review-<program>-<date>.md` in the user's working repo.
+1. Load `knowledge/security/AGENTS.md` and follow its load order.
+2. Map the program's features to catalog classes (feature→class table in AGENTS.md); read those Section B entries plus Section A for time allocation.
+3. Grep for the "Anchor/Rust tells" in those entries (AGENTS.md has a starter grep list).
+4. Manual review + spec-matching against `docs/design.md` in the user's repo (a doc security claim absent from code is a **High**).
+5. Write findings in the FYEO template to `docs/security-review.md` in the user's working repo, with a Section A-style severity histogram at the top.
+6. If funds are at risk, recommend a fuzz/invariant plan (Trident, shadow-state — see `audit-methodology.md`).
+7. After fixes: verify phase — re-review the diff only, update statuses (`Open → Remediated`, keep `Acknowledged` with rationale).
 
 ## Output
 
-- Executive summary: risk level and most critical issues
-- Per-file findings with severity, exploit scenario, and recommended fix
-- Test coverage gaps
+- `docs/security-review.md`: severity histogram, then FYEO-template findings (ID, severity, status, description, proof of issue, impact, recommendation)
+- Test coverage gaps (negative paths per failure mode)
 - Deployment/admin hardening recommendations
+- Fuzz plan recommendation when funds are at risk

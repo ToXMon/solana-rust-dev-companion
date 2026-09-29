@@ -2,7 +2,6 @@
 name: solana-architect
 description: Design a Solana program from a requirement — produce PDA design, account layout, instruction set, and security considerations
 argument-hint: "<requirement or use case>"
-model: sonnet
 allowed-tools:
   - read
   - grep

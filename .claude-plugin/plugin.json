@@ -16,6 +16,7 @@
   "skills": [
     "./skills/safe-solana-builder",
     "./skills/solana-architect",
+    "./skills/solana-audit-prep",
     "./skills/solana-build",
     "./skills/solana-defi",
     "./skills/solana-frontend",

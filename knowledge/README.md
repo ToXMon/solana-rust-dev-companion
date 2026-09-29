@@ -32,6 +32,11 @@ Every knowledge file, grouped by category. Files are organized by *how an agent 
 | File | Purpose |
 |------|---------|
 | `security/security-audit-patterns.md` | Extended audit-derived security guidance; complements the PRINCIPLES.md checklist |
+| `security/vulnerability-abundance.md` | Why no checklist/audit is complete; class elimination + prioritization mindset |
+| `security/fyeo-audit-findings-catalog.md` | All ~170 findings from 23 FYEO public Solana audits by class, with prevention rules |
+| `security/audit-methodology.md` | FYEO review pipeline, severity definitions, Trident fuzzing method, finding template |
+| `security/audit-readiness-checklist.md` | Pre-audit requirements: pinned commit, spec, threat model, tests, authority plan |
+| `security/AGENTS.md` | Agent playbook for running a security review with this directory |
 | `security/README.md` | Index into `skills/safe-solana-builder/references/` |
 
 ## `ecosystem/` — current state of Solana

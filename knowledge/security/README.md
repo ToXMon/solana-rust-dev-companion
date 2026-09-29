@@ -1,10 +1,15 @@
 # Security knowledge
 
-Audit-derived Solana security guidance. `security-audit-patterns.md` in this directory is the summary; the detailed rulebooks live in `skills/safe-solana-builder/references/` (Frank Castle's Safe Solana Builder). Read the summary first, then the reference matching your framework.
+Audit-derived Solana security guidance. `security-audit-patterns.md` in this directory is the checklist summary; `AGENTS.md` is the review playbook; the detailed rulebooks live in `skills/safe-solana-builder/references/` (Frank Castle's Safe Solana Builder).
 
 ## In this directory
 
 - `security-audit-patterns.md` — extended security checklist distilled from audit practice: account validation, PDA/bump discipline, CPI safety, arithmetic, authority design.
+- `vulnerability-abundance.md` — why no checklist/audit is complete; class elimination, the abundance distribution, prioritization, discoverability.
+- `fyeo-audit-findings-catalog.md` — every finding from 23 FYEO public Solana audits, organized by vulnerability class, with prevention rules and grep-able "tells".
+- `audit-methodology.md` — how FYEO structures a review (Kickoff→Ramp-up→Review→Reporting→Verify), exact severity definitions, fuzzing methodology, finding template.
+- `audit-readiness-checklist.md` — what a team must have before requesting an external audit.
+- `AGENTS.md` — instructions for an agent performing a security review using this directory (load order, feature→class mapping, grep tells, finding format).
 
 ## Detailed references (`skills/safe-solana-builder/references/`)
 

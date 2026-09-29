@@ -1,7 +1,6 @@
 ---
 name: solana-researcher
 description: Research the latest Solana ecosystem updates and update the local knowledge base
-model: sonnet
 allowed-tools:
   - read
   - grep

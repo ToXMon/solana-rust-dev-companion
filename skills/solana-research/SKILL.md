@@ -2,7 +2,6 @@
 name: solana-research
 description: Fetch and synthesize the latest Solana ecosystem resources, docs, and proposals into the knowledge base
 argument-hint: "<topic or 'refresh all'>"
-model: sonnet
 allowed-tools:
   - read
   - edit

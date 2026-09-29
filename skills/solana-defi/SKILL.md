@@ -2,7 +2,6 @@
 name: solana-defi
 description: Build Solana DeFi primitives: escrow, vaults, AMMs, and perp integrations
 argument-hint: "<primitive: escrow / vault / amm / perps / etc>"
-model: sonnet
 allowed-tools:
   - read
   - edit

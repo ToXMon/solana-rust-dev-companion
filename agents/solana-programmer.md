@@ -1,7 +1,6 @@
 ---
 name: solana-programmer
 description: Implement, test, and deploy Solana programs with Anchor and Rust
-model: sonnet
 allowed-tools:
   - read
   - edit

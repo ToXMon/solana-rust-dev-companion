@@ -1,7 +1,6 @@
 ---
 name: solana-architect
 description: Design Solana programs and end-to-end dapp architecture before code is written
-model: sonnet
 allowed-tools:
   - read
   - grep

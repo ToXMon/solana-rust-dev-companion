@@ -22,6 +22,6 @@ The subagent will read the code, apply its system prompt, and return a findings 
 
 ## Design notes
 
-- Each profile pins a model (`sonnet` by default) and restricts tools to read/edit/grep/exec as appropriate.
+- Profiles are model-agnostic; they only restrict tools to read/edit/grep/exec as appropriate.
 - They are read/write capable except for the researcher, which also has `web_search` and `webfetch`.
 - Security reviewer does not apply fixes unless explicitly asked; it produces a report.

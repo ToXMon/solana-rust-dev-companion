@@ -13,7 +13,7 @@ knowledge/
   core/                    Solana fundamentals, Rust-for-Anchor, cheat sheet, mental-model primer
   process/                 how to work: architecture diagramming, LOI template, homework tracker
   patterns/                code patterns, use-case recipes, stack selector
-  security/                audit-derived security patterns + Frank Castle references
+  security/                audit-derived patterns, FYEO findings catalog, review playbook, methodology
   ecosystem/               what's hot right now, synthesized web resources, static links
   cohort/                  Turbin3 Q3 2026 transcript insights (indexed by topic)
 skills/                    invocable skills (SKILL.md each) — see skills/README.md
@@ -35,7 +35,7 @@ adapters/                  drop-in files for Claude Code, Cursor, Devin, Codex, 
 | Tokens / NFTs / DeFi / RWA / privacy | the matching domain skill under `skills/` + topic section in `knowledge/ecosystem/web-resources.md` |
 | Frontend | `skills/solana-frontend` |
 | Tests | `skills/solana-test` |
-| Security review / audit | `skills/solana-security` + `knowledge/security/security-audit-patterns.md` |
+| Security review / audit | `skills/solana-security` + `knowledge/security/AGENTS.md` + `knowledge/security/fyeo-audit-findings-catalog.md`; prep for an external audit with `skills/solana-audit-prep` + `knowledge/security/audit-readiness-checklist.md` |
 | Understand a concept | `knowledge/core/` first; `knowledge/cohort/` for how the instructors taught it |
 | Update the knowledge base | `skills/solana-research` |
 | Full-stack dapp end to end | `workflows/README.md` → Workflow 1 |

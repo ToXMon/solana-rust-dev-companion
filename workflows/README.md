@@ -126,6 +126,41 @@ AI red-team ──► treat output as findings to evaluate; each member logs ove
 Draw the diagram (consistent arrows, distinct boundaries, consistent labels)
 ```
 
+## Workflow 7: Production pipeline (funds at risk)
+
+```
+Requirements (/solana-architect → docs/design.md: atomic requirements + threat model)
+    │
+    ▼
+/safe-solana-builder ──► build with a test per instruction (LiteSVM/Surfpool as you go)
+    │
+    ▼
+/solana-test ──► negative test per failure path + fuzz/invariants (Trident shadow-state)
+    │
+    ▼
+/solana-security ──► internal adversarial review (fresh context) → docs/security-review.md
+    │
+    ▼
+fix + verify ──► re-review the diff, findings → Remediated; loop until clean
+    │
+    ▼
+/solana-audit-prep ──► docs/audit-scope.md (commit, file tree, spec, known issues)
+    │
+    ▼
+External audit ──► remediate ──► auditor Verify phase (statuses → Remediated)
+    │
+    ▼
+Devnet receipts ──► program ID + tx signatures ──► mainnet
+    │
+    ▼
+Ops: upgrade authority → multisig/timelock · pause ≠ resume keys · monitoring via events
+    │
+    ▼
+Ongoing: diff review on every material change (FYEO "ongoing" model)
+```
+
+Basis: `knowledge/security/vulnerability-abundance.md` (why the pipeline is continuous), `audit-methodology.md` (the external loop), `fyeo-audit-findings-catalog.md` (where programs actually fail).
+
 ## How to run a workflow
 
 You can either:

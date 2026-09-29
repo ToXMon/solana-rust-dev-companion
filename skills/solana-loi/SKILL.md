@@ -2,7 +2,6 @@
 name: solana-loi
 description: Help draft and review Letters of Intent (LOIs), capstone proposals, and cohort homework for the Solana Builders Cohort
 argument-hint: "<assignment: loi / vault / escrow / amm / etc>"
-model: sonnet
 allowed-tools:
   - read
   - edit
