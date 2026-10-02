@@ -51,8 +51,10 @@ PRINCIPLES.md          ENTRY.md               knowledge/  skills/  workflows/  a
 | `knowledge/patterns/` | Code patterns, use-case recipes, stack selector |
 | `knowledge/security/` | Audit-derived patterns, FYEO findings catalog (~170 real findings by class), review playbook, methodology, readiness checklist |
 | `knowledge/ecosystem/` | What's current on Solana, synthesized web resources, curated links |
+| `knowledge/production/` | STRIDE-style release readiness, Triton transaction delivery, Fumarole/Jetstreamer indexing, monitoring, and incident response |
+| `knowledge/gtm/` | Builder positioning, demo, launch, and getting-noticed lessons for Solana builders |
 | `knowledge/cohort/` | Turbin3 transcript insights indexed by topic + slide extracts |
-| `skills/` | 15 invocable skills (`/turbin3`, `/solana-architect`, `/safe-solana-builder`, …) |
+| `skills/` | 18 invocable skills (`/turbin3`, `/solana-architect`, `/safe-solana-builder`, `/solana-production-readiness`, `/solana-streaming-indexing`, `/solana-gtm`, …) |
 | `agents/` | Subagent profiles (architect, programmer, frontend, security, researcher) |
 | `workflows/` | Multi-step build graphs: idea → shipped, audit loop, arch diagram, LOI |
 | `examples/` | Worked artifacts from one real capstone (LEASH): LOI, requirements, red-team log |

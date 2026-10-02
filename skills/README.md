@@ -36,6 +36,12 @@ All skills live in named subdirectories with a `SKILL.md` file. Invoke them with
 
 - `/solana-loi` — help draft and review Letters of Intent, capstone proposals, and weekly homework
 
+## Production, indexing, and GTM
+
+- `/solana-production-readiness` — STRIDE-style readiness, release provenance, RPC transaction delivery, monitoring, and incident response
+- `/solana-streaming-indexing` — JSON-RPC vs WebSocket vs Geyser/Fumarole vs Jetstreamer, dedupe and checkpoint design
+- `/solana-gtm` — positioning, demos, build-in-public, launch planning, grants/hackathons, no-slop AI marketing
+
 ## How to add a new skill
 
 1. Create `skills/<name>/SKILL.md`.
@@ -51,3 +57,4 @@ Specialized agent profiles are in `agents/` and can be invoked as subagents for 
 - `solana-frontend-dev`
 - `solana-security-reviewer`
 - `solana-researcher`
+- `solana-gtm-strategist`
