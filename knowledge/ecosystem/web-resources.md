@@ -870,3 +870,64 @@ Vault holds stablecoin collateral / issuer custody the underlying security off-c
 ---
 
 *Synthesized from Metaplex docs, CoinPaprika, MetaMask RWA guide, Ondo Global Markets Solana repo, Solana confidential-transfer docs, QuickNode guide, Awesome Privacy on Solana, and internal Solana ecosystem docs.*
+
+---
+
+## 9. Arcium: Confidential Computing on Solana
+
+Arcium is a production-grade Multi-Party Computation (MPC) network live on Solana mainnet. It enables encrypted computations via off-chain Arx node clusters without exposing data to any single node.
+
+### When to Use Arcium
+
+| Scenario | Arcium | Token-2022 Confidential Transfer | Switchboard VRF |
+|----------|--------|-----------------------------------|----------|
+| Hide individual balances | Maybe | ✓ | N/A |
+| Private state machine | ✓ | No | N/A |
+| Verifiable randomness | ✗ (NO) | N/A | ✓ |
+| Sealed-bid auction | ✓ | No | No |
+| Private DeFi swap | ✓ | ✓ (partial) | No |
+| Confidential value transfer | Slow | ✓ Fast | N/A |
+
+**Key fact:** Arcium RNG is NOT on-chain verifiable. Use Switchboard VRF for provable lotteries.
+
+### Getting Started with Arcium
+
+| Resource | Purpose |
+|----------|----------|
+| [Arcium Docs](https://docs.arcium.com) | Primary documentation |
+| [Installation](https://docs.arcium.com/developers/installation.md) | `arcup` toolchain setup |
+| [Hello World](https://docs.arcium.com/developers/hello-world.md) | First MXE + encrypted circuit |
+| [Core Concepts](https://docs.arcium.com/developers/core-concepts.md) | MXEs, Clusters, Arcis framework |
+| [Mental Model](https://docs.arcium.com/developers/arcis/mental-model.md) | Why MPC circuits differ (fixed-size, fixed bounds, no dynamic behavior) |
+| [Primitives API](https://docs.arcium.com/developers/arcis/primitives.md) | RNG, SHA3, Ed25519, field arithmetic |
+| [Operations Reference](https://docs.arcium.com/developers/arcis/operations.md) | Supported Arcis syntax and functions |
+| [Best Practices](https://docs.arcium.com/developers/arcis/best-practices.md) | Performance tuning, debugging |
+| [Deployment Guide](https://docs.arcium.com/developers/deployment.md) | Mainnet setup, RPC config |
+
+### Architecture & Security
+
+- **MXE** (MPC eXecution Environment): Solana account binding encrypted computation to a cluster and program
+- **Arx nodes**: Decentralized processors; honest-majority model (privacy maintained if ≥1 honest)
+- **Arcis**: Rust DSL for MPC circuits (fixed-size arrays, fixed loop bounds, deterministic)
+- **Cerberus**: Fault detection protocol; aborts computation on Byzantine faults (never corrupts)
+
+### Known Limitations
+
+- Latency: 5-30 minutes (MPC consensus + on-chain finalization)
+- Output: ~5KB max (single protocol message)
+- Fixed-size data only (no `Vec`, `String`, `HashMap`; use arrays)
+- No floats in circuits (use fixed-point arithmetic)
+- Devnet: limited Arx nodes (mainnet recommended)
+
+### Arcium + Switchboard Pattern (for Cryptoball-style Lottery)
+
+```
+1. Ticket submission (public) → Arcium validate & odds
+2. Switchboard VRF draw (verifiable random on-chain)
+3. Arcium compute prize (encrypted)
+4. Callback: distribute (public ledger)
+```
+
+---
+
+*Synthesized from Arcium docs, Switchboard docs, Token-2022 specs, and security research (Quarkslab vulnerability research methodology).*
